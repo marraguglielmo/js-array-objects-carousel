@@ -1,3 +1,4 @@
+// elements
 const images = [
     {
         url: 'http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg',
@@ -22,10 +23,44 @@ const images = [
         description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
     },
     {
-        url: 'https://cdn.sanity.io/images/24oxpx4s/prod/   ed09eff0362396772ad50ec3bfb728d332eb1c30-3200x2125.jpg?w=1600&h=1063&         fit=crop',
+        url: 'https://cdn.sanity.io/images/24oxpx4s/prod/ed09eff0362396772ad50ec3bfb728d332eb1c30-3200x2125.jpg?w=1600&h=1063&fit=crop',
         title: 'Colombia',
         description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
     },
 ];
+const itemsWrapper = document.querySelector('.my-carousel-images');
+const thumbsWrapper = document.querySelector('.my-thumbnails');
+const btnPrev = document.querySelector('.my-previous');
+const btnNext = document.querySelector('.my-next');
 
-const 
+let counter = 0;
+
+// click prev
+btnPrev.addEventListener('click',scrollPrev);
+// click next
+// btnNext.addEventListener('click',scrollnext);
+
+
+images.forEach((slide) =>{
+    itemsWrapper.innerHTML += `
+    <div class="my-carousel-item active">
+        <img class="img-fluid" src="${slide.url}" picture">
+        <div class="item-description px-3">
+            <h2>${slide.title}</h2>
+            <p>${slide.description}</p>
+        </div>
+    </div>
+    `
+    thumbsWrapper.innerHTML += `
+    <div class="my-thumbnail ">
+        <img class="img-fluid" src="${slide.url}" alt="Thumbnail of Svezia picture">
+    </div>
+    `
+    
+});
+
+// FUNCTIONS //////
+
+function scrollPrev(){
+
+}
