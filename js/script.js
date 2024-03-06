@@ -68,9 +68,29 @@ btnNext.addEventListener('click', scrollNext);
 imgCollection[counter].classList.add('active');
 thumbCollection[counter].classList.add('th-active');
 
-
+const ThumbCollection = document.querySelectorAll('.thumb');
+thumbCollection[counter].addEventListener('click', function(){
+    console.log('ciao');
+});
 
 // FUNCTIONS //////
+const btnScorrNext = document.querySelector('.scorr-next');
+const btnScorrPrev = document.querySelector('.scorr-prev');
+let setNext;
+let setPrev;
+
+btnScorrPrev.addEventListener('click', function(){
+    clearInterval(setPrev);
+    clearInterval(setNext);
+    setPrev = setInterval(scrollPrev, 2000);
+});
+
+btnScorrNext.addEventListener('click', function(){
+    clearInterval(setNext);
+    clearInterval(setPrev);
+    setNext = setInterval(scrollNext, 2000);
+});
+
 
 function scrollNext(){
     imgCollection[counter].classList.remove('active');
@@ -81,7 +101,8 @@ function scrollNext(){
     }
     imgCollection[counter].classList.add('active');
     thumbCollection[counter].classList.add('th-active');
-    
+
+
 }
 
 function scrollPrev(){
