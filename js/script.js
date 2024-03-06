@@ -5,7 +5,7 @@ const images = [
         title: 'Svezia',
         description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
     },
-
+    
     {
         url: 'https://static1.evcdn.net/images/reduction/1513757_w-1920_h-1080_q-70_m-crop.jpg',
         title: 'Perù',
@@ -30,8 +30,6 @@ const images = [
 ];
 const itemsWrapper = document.querySelector('.my-carousel-images');
 const thumbsWrapper = document.querySelector('.my-thumbnails');
-const btnPrev = document.querySelector('.my-previous');
-const btnNext = document.querySelector('.my-next');
 
 let counter = 0;
 
@@ -39,16 +37,16 @@ let counter = 0;
 images.forEach((slide) =>{
     itemsWrapper.innerHTML += `
     <div class="item my-carousel-item">
-        <img class="img-fluid" src="${slide.url}" alt ="${slide.title} picture">
-        <div class="item-description px-3">
-            <h2>${slide.title}</h2>
-            <p>${slide.description}</p>
-        </div>
+    <img class="img-fluid" src="${slide.url}" alt ="${slide.title} picture">
+    <div class="item-description px-3">
+    <h2>${slide.title}</h2>
+    <p>${slide.description}</p>
+    </div>
     </div>
     `
     thumbsWrapper.innerHTML += `
     <div class="my-thumbnail thumb">
-        <img class="img-fluid" src="${slide.url}" alt="Thumbnail of ${slide.title} picture">
+    <img class="img-fluid" src="${slide.url}" alt="Thumbnail of ${slide.title} picture">
     </div>
     `
 });
@@ -61,15 +59,19 @@ const thumbCollection = document.querySelectorAll('.thumb')
 imgCollection[counter].classList.add('active');
 thumbCollection[counter].classList.add('active');
 
+const btnPrev = document.querySelector('.my-previous');
+const btnNext = document.querySelector('.my-next');
 
 // click prev
-btnPrev.addEventListener('click',scrollPrev);
+btnPrev.addEventListener('click', scrollPrev);
 // click next
 btnNext.addEventListener('click', scrollNext);
+
 
 // FUNCTIONS //////
 
 function scrollNext(){
+    console.log('ciao');
     imgCollection[counter++].classList.remove('active');
     thumbCollection[counter++].classList.remove('active');
     imgCollection[counter].classList.add('active');
