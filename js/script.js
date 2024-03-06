@@ -34,15 +34,9 @@ const btnPrev = document.querySelector('.my-previous');
 const btnNext = document.querySelector('.my-next');
 
 let counter = 0;
-let indice = 0;
-
-// click prev
-btnPrev.addEventListener('click',scrollPrev);
-// click next
-// btnNext.addEventListener('click',scrollnext);
 
 // inserisco le immagini
-images.forEach((slide, index) =>{
+images.forEach((slide) =>{
     itemsWrapper.innerHTML += `
     <div class="item my-carousel-item">
         <img class="img-fluid" src="${slide.url}" alt ="${slide.title} picture">
@@ -57,22 +51,36 @@ images.forEach((slide, index) =>{
         <img class="img-fluid" src="${slide.url}" alt="Thumbnail of ${slide.title} picture">
     </div>
     `
-    indice = index;
 });
 
 
 // salvo tutti gli elementi immagine e thumb
 const imgCollection = document.querySelectorAll('.item')
 const thumbCollection = document.querySelectorAll('.thumb')
-console.log(imgCollection);
-console.log(thumbCollection);
 
-imgCollection[0].classList.add('active');
-thumbCollection[0].classList.add('active');
+imgCollection[counter].classList.add('active');
+thumbCollection[counter].classList.add('active');
 
 
+// click prev
+btnPrev.addEventListener('click',scrollPrev);
+// click next
+btnNext.addEventListener('click', scrollNext);
 
 // FUNCTIONS //////
 
+function scrollNext(){
+    imgCollection[counter++].classList.remove('active');
+    thumbCollection[counter++].classList.remove('active');
+    imgCollection[counter].classList.add('active');
+    thumbCollection[counter].classList.add('active');
+    
+}
+
 function scrollPrev(){
+    imgCollection[counter--].classList.remove('active');
+    thumbCollection[counter--].classList.remove('active');
+    imgCollection[counter].classList.add('active');
+    thumbCollection[counter].classList.add('active');
+
 }
