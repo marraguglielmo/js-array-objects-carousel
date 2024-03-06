@@ -51,38 +51,47 @@ images.forEach((slide) =>{
     `
 });
 
+const btnPrev = document.querySelector('.my-previous');
+const btnNext = document.querySelector('.my-next');
 
 // salvo tutti gli elementi immagine e thumb
 const imgCollection = document.querySelectorAll('.item')
 const thumbCollection = document.querySelectorAll('.thumb')
 
-imgCollection[counter].classList.add('active');
-thumbCollection[counter].classList.add('active');
 
-const btnPrev = document.querySelector('.my-previous');
-const btnNext = document.querySelector('.my-next');
 
 // click prev
 btnPrev.addEventListener('click', scrollPrev);
 // click next
 btnNext.addEventListener('click', scrollNext);
 
+imgCollection[counter].classList.add('active');
+thumbCollection[counter].classList.add('th-active');
+
+
 
 // FUNCTIONS //////
 
 function scrollNext(){
-    console.log('ciao');
-    imgCollection[counter++].classList.remove('active');
-    thumbCollection[counter++].classList.remove('active');
+    imgCollection[counter].classList.remove('active');
+    thumbCollection[counter].classList.remove('th-active');
+    counter++;
+    if(counter === images.length){
+        counter = 0;
+    }
     imgCollection[counter].classList.add('active');
-    thumbCollection[counter].classList.add('active');
+    thumbCollection[counter].classList.add('th-active');
     
 }
 
 function scrollPrev(){
-    imgCollection[counter--].classList.remove('active');
-    thumbCollection[counter--].classList.remove('active');
+    imgCollection[counter].classList.remove('active');
+    thumbCollection[counter].classList.remove('th-active');
+    counter--;
+    if(counter < 0){
+        counter = images.length - 1;
+    }
     imgCollection[counter].classList.add('active');
-    thumbCollection[counter].classList.add('active');
+    thumbCollection[counter].classList.add('th-active');
 
 }
