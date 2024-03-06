@@ -13,5 +13,7 @@ Creare un carosello come nella foto allegata o come il vostro già realizzato.
 1. prendo i bottoni e li metto in due variabili
 2. prendo l `itemsWrapper` e la `thumbnail`
 3. con un ciclo forEach inserisco le immagini nell `itemsWrapper` e nella `thumbnail`, passandogli le informazioni: url, title, description
-4. con due funzioni faccio in modo che al corrispettivo click, le immagini scorrano a destra e sinistra
-5. rendo lo scorrimento infinito, sia da destra che da sinistra
+4. raccolgo tutti gli elementi immagine e thumb
+5. rendo attivo il primo elemento immagine e thumb
+6. con due funzioni faccio in modo che al corrispettivo click, le immagini scorrano a destra e sinistra
+7. rendo lo scorrimento infinito, sia da destra che da sinistra
